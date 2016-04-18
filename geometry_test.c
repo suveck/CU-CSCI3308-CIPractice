@@ -152,13 +152,13 @@ START_TEST(test_2d_tri)
     coord_2d_t a;
     coord_2d_t b;
     coord_2d_t c;
-    float* tri;
+    float* tri = 0;
     float area;
     bool pass = true;
 
     a.x = b.x = c.x = 0;
     a.y = b.y = c.y = 0;
-    coord_2d_tri(&tri, &a, &b, &c);
+    coord_2d_tri (tri, &a, &b, &c);
     area = 0;
     if (*tri != area) pass = false;
     ck_assert(pass);
@@ -169,7 +169,7 @@ START_TEST(test_2d_tri)
     b.y = 5;
     c.x = 5;
     c.x = 5;
-    coord_2d_tri (&tri, &a, &b, &c);
+    coord_2d_tri (tri, &a, &b, &c);
     area = 12.5;
     if (*tri != area) pass = false;
     ck_assert(pass);

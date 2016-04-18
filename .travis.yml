@@ -4,5 +4,6 @@ compiler:
 	- gcc
 before_install:
   - test -n $CC && unset CC
+script: make test
 
 

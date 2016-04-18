@@ -76,21 +76,19 @@ float lineAB = 0;
 float lineBC = 0;
 float temp1 = 0;
 float temp2 = 0;
-float temp3 = 0;
 
 if (a->x - b->x < 0) temp1 = b->x - a->x;
 else temp1 = a->x - b->x;
 if (a->y - b->y < 0) temp1 = b->y - a->y;
 else temp1 = a->y - b->y;
-temp3 = (temp1 * temp1) + (temp2 * temp2);
-lineAB = sqrt(temp3);
+lineAB = temp1 * temp2;
 
 if (c->x - b->x < 0) temp1 = b->x - c->x;
 else temp1 = c->x - b->x;
 if (c->y - b->y < 0) temp1 = b->y - c->y;
 else temp1 = c->y - b->y;
-temp3 = (temp1 * temp1) + (temp2 * temp2);
-lineBC = sqrt(temp3);
+lineBC = temp1 * temp2;
+
 *tri = ((lineAB * lineBC) /2);
 
 return;
