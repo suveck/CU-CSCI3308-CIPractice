@@ -1,6 +1,7 @@
-install : true
-script: make
+language: c
 
+sudo: required
+compiler:
+  - gcc
 
-
-
+script: make dep && make && make test
