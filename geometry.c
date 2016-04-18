@@ -70,28 +70,24 @@ void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b
 
 }
 
-void coord_2d_tri(float* tri, const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t *c){
+float coord_2d_tri(const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t *c){
 
-float lineAB = 0;
-float lineBC = 0;
-float temp1 = 0;
-float temp2 = 0;
+    if(!a){
+        DEBUG(__FILE__, __LINE__, __func__, "'a' must not be NULL");
+        return NAN;
+    }
+    if(!b){
+        DEBUG(__FILE__, __LINE__, __func__, "'b' must not be NULL");
+        return NAN;
+    }
 
-if (a->x - b->x < 0) temp1 = b->x - a->x;
-else temp1 = a->x - b->x;
-if (a->y - b->y < 0) temp1 = b->y - a->y;
-else temp1 = a->y - b->y;
-lineAB = temp1 * temp2;
+	if(!c){
+        DEBUG(__FILE__, __LINE__, __func__, "'c' must not be NULL");
+        return NAN;
+    }
 
-if (c->x - b->x < 0) temp1 = b->x - c->x;
-else temp1 = c->x - b->x;
-if (c->y - b->y < 0) temp1 = b->y - c->y;
-else temp1 = c->y - b->y;
-lineBC = temp1 * temp2;
-
-*tri = ((lineAB * lineBC) /2);
-
-return;
+    /* Maths */
+    return abs((a->x*(b->y - c->y) + b->x*(c->y - a->y) + c->x*(a->y - b->y)) / 2);
 	
 
 }

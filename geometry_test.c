@@ -149,19 +149,27 @@ END_TEST
 /* coord_2d_tri Test */
 START_TEST(test_2d_tri)
 {
+
+	coord_2d_t a;
+    coord_2d_t b;
+    coord_2d_t c;
+    
+    a.x = 15.0;
+    a.y = 15.0;
+    b.x = 15.0;
+    b.y = 30.0;
+    c.x = 29.0;
+    c.y = 24.0;
+    
+    ck_assert(coord_2d_tri(&a, &b, &c) == 105.0);
+/*
     coord_2d_t a;
     coord_2d_t b;
     coord_2d_t c;
-    float* tri = 0;
-    float area;
-    bool pass = true;
-
+    
     a.x = b.x = c.x = 0;
     a.y = b.y = c.y = 0;
-    coord_2d_tri (tri, &a, &b, &c);
-    area = 0;
-    if (*tri != area) pass = false;
-    ck_assert(pass);
+    ck_assert(coord_2d_tri (&a, &b, &c) == 0);
 
     a.x = 0;
     a.y = 0;
@@ -169,10 +177,9 @@ START_TEST(test_2d_tri)
     b.y = 5;
     c.x = 5;
     c.x = 5;
-    coord_2d_tri (tri, &a, &b, &c);
-    area = 12.5;
-    if (*tri != area) pass = false;
-    ck_assert(pass);
+
+    ck_assert(coord_2d_tri (&a, &b, &c) == 12.5);
+*/
 }
 END_TEST
 
@@ -206,7 +213,7 @@ Suite* coord_2d_suite(void)
     return s;
 
 }
-//utyftyftyfty
+
 /* main: run test suites and set exit status */
 int main(void){
 
