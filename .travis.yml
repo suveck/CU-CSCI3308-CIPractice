@@ -1,5 +1,12 @@
+language: c
+compiler:
+	- gcc
+before_install:
+  - test -n $CC && unset CC
 install : true
-script: make test
+script:
+    -make
+    -test
 
 
 
