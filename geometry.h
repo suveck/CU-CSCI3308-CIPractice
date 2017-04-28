@@ -26,3 +26,6 @@ bool coord_2d_eq(const coord_2d_t* a, const coord_2d_t* b);
 void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b);
 
 float coord_2d_tri(const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t *c);
+
+double coord_2d_area_triangle(const coord_2d_t *a, const
+ coord_2d_t *b, const coord_2d_t *c);
